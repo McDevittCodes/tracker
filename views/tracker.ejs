@@ -1,0 +1,30 @@
+<% include partials/header %>
+<% include partials/topNav %>
+
+<!--side nav-->
+  <ul id="slide-out" class="sidenav sidenav-fixed">
+    <li><div class="user-view">
+      <a href="#name"><span>John Doe</span></a>
+    </div></li>
+    <!--tracker loop-->
+    <% tracker.forEach(function(tracker){ %>
+	<li><a href="#!"><%= tracker.name %></a>
+	</li>
+<% }); %>
+    <li><div class="divider"></div></li>
+    <!--new tracker form-->
+    <form action="/tracker" method="POST">
+	<input type="text" name="name" placeholder="new tracker">
+	<button>Submit</button>
+</form>
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a>
+
+<!--body-->
+<div class="tracker-body">
+    <p>Tracker App</p>
+    <a href="/">View Home Page</a>
+</div>
+
+
+<% include partials/footer %>
